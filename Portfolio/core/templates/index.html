@@ -1,0 +1,540 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Rishabh Portfolio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .body{
+            overflow-x: hidden;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            background-color: rgb(0,0,33);
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18,18,62);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+        ul{
+            display: flex;
+            align-items: center;
+        }
+        ul li{
+            list-style: none;
+            margin: 0px 25px;
+        }
+        .left{
+            font-size: 1.5rem;
+            animation: slideRight 1s ease forwards;
+        }
+        .right{
+            font-size: 1.1rem;
+            animation: slideTop 0.5s ease forwards;
+        }
+
+        #about{
+            /*border: 2px solid red;*/
+            width: 80%;
+            margin: 10px;
+        }
+
+        #projects{
+            /*border: 2px solid red;*/
+            width: 80%;
+            margin: 10px;
+        }
+        ul li a{
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 1s;
+        }
+        li a:hover{
+            color: crimson;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .home{
+            /*border: 2px solid red;*/
+            width: 95%;
+            margin: 2.5%;
+            height: 45vh;
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 120px;
+        }
+        .home-content{
+            width: 50%;
+        }
+        .home-image{
+            border: 10px solid crimson;
+            width: 22%;
+            height: 310px;
+            border-radius: 50%;
+        }
+        .home-content h3{
+            animation: slideRight 1s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+
+        .home-content h1{
+            animation: slideLeft 1s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+
+        .home-content h3 span{
+            color: crimson;
+
+        }
+
+        .btn-about button{
+            margin-top: 10px;
+            height: 40px;
+            width: 120px;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: rgb(70, 174, 209);
+            border-style: none;
+            font-weight: 600;
+            animation: slideTop 0.5s ease forwards;
+        }
+        .btn-about button:hover{
+            box-shadow: 2px 2px 10px 10px crimson;
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        @keyframes slideRight{
+            0%{
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideTop{
+            0%{
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft{
+            0%{
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        .about{
+            /*border: 2px solid red;*/
+            width: 95%;
+            margin: 2.5%;
+            height: 60vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .about-image{
+            border: 4px solid crimson;
+            height: 207px;
+            width: 207x;
+            border-radius: 50%;
+        }
+
+        .about-content{
+            height: 50vh;
+            width: 60%;
+        }
+        .about-content h1{
+            text-align: center;
+            font-size: 40px;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .about-content p{
+            text-align: justify;
+            font-size: 18px;
+            animation: slideTop 1s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .about-content button{
+            margin-top: 10px;
+            height: 40px;
+            width: 130px;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: rgb(70, 174, 209);
+            border-style: none;
+            font-weight: 700;
+            animation: slideTop 0.5s ease forwards;
+        }
+        .about-content button:hover{
+            box-shadow: 2px 2px 10px 10px crimson;
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        .projects{
+            /*border: 2px solid red;*/
+            height: 230vh;
+            width: 95%;
+            margin: 2.5%;
+        }
+        .projects .heading h1{
+            text-align: center;
+            font-size: 40px;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+            margin-top: 15px;
+        }
+
+        .box{
+            /*border: 2px solid red;*/
+            height: 45vh;
+            width: 90%;
+            margin: 5%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .box-image{
+           /*border: 2px solid red;*/
+            height: 45vh;
+            width: 30%;
+        }
+        .box-content{
+           /*border: 2px solid red;*/
+            height: 45vh;
+            width: 50%;
+            
+        }
+        .box-content h1{
+            text-align: center;
+            color: cornflowerblue;
+            font-size: 40px;
+            animation: slideLeft 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .box-content p{
+            text-align: justify;
+            font-size: 18px;
+            animation: slideTop 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .box-content h3{
+            text-align: center;
+            font-size: 30px;
+            color: cornflowerblue;
+            animation: slideTop 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+
+        }
+        .box-content h4{
+            text-align: center;
+            animation: slideTop 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .box-content button{
+            margin-top: 10px;
+            height: 40px;
+            width: 120px;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: rgb(70, 174, 209);
+            border-style: none;
+            font-weight: 600;
+            animation: slideTop 0.5s ease forwards;
+        }
+        .box-content button:hover{
+            box-shadow: 2px 2px 10px 10px crimson;
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        .contact{
+            height: 45vh;
+            width: 90%;
+            /*border: 2px solid red;*/
+            margin: 5%;
+            margin-top: 0px;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+        }
+        .contact-img{
+            height: 45vh;
+            width: 30%;
+            /*border: 2px solid red;*/
+        }
+        .contact-content{
+            height: 45vh;
+            width: 50%;
+            /*border: 2px solid red;*/
+        }
+        .contact-content h1{
+            text-align: center;
+            font-size: 40px;
+            animation: slideRight 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .contact-content form{
+            font-size: 20px;
+            text-align: center;
+        }
+        .contact-content form p{
+            margin-bottom: 4px;
+            animation: slideTop 0.5s ease forwards;
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .contact-content input{
+            height: 30px;
+            width: 250px;
+            border: 3px solid crimson;
+            border-radius: 20px;
+        }
+        .contact-content textarea{
+            border: 3px solid crimson;
+        }
+        .contact-content button{
+            margin-top: 10px;
+            height: 40px;
+            width: 120px;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: rgb(70, 174, 209);
+            border-style: none;
+            font-weight: 600;
+            animation: slideTop 0.5s ease forwards;
+        }
+        .contact-content button:hover{
+            box-shadow: 2px 2px 10px 10px crimson;
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        .footer{
+            height: 20vh;
+            width: 100%;
+            background-color: rgb(18,18,62);
+        }
+        .footer-content{
+            height: 20vh;
+            width: 90%;
+            margin: 5%;
+            /*border: 2px solid red;*/
+            text-align: center;
+        }
+        .footer-content i{
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .footer-content i:hover{
+            color: crimson;
+        }
+        .footer-content a{
+            font-size: 20px;
+            color: white;
+            text-decoration: underline;
+            margin-right: 10px;
+        }
+        .footer-content a:hover{
+            color: crimson;
+        }
+        .footer-content p{
+            font-size: 17px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <div class="left">Rishabh's Portfolio</div>
+        <div class="right">
+            <ul>
+                <li><a href="#jumphome">Home</a></li>
+                <li><a href="#jumpabout">About Me</a></li>
+                <li><a href="#jumpprojects">Projects</a></li>
+                <li><a href="#jumpcontact">Contact Me</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="home" id="jumphome">
+        <div class="home-content">
+            <h3>Hello, All</h3>
+            <h1>I'm <span style="color: crimson;">Rishabh Saxena</span></h1>
+            <h3>And I am a <span style="color: crimson;" class="text"></span><br> having knowledge in both Frontend and Backend Technologies with the integration of Databases.</h3>
+            <div class="btn-about">
+                <a href="#jumpabout"><button>More About Me</button></a>
+            </div>
+        </div>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <div class="home-image">
+            <img src="{% static '/images/logo.jpg' %}" height="290px" width="100%" style="border-radius: 50%;" alt="Image">
+        </div>
+    </section>
+    
+    <section class="about" id="jumpabout">
+        <div class="about-image">
+            <img src="{% static '/images/logo.jpg' %}" height="200px" width="200px" style="border-radius: 50%;" alt="">
+        </div>
+        <div class="about-content">
+            <h1>About<span style="color: crimson;">ME</span></h1>
+            <p>Hello! I'm <span style="color: crimson;">Rishabh Saxena</span>, a budding Python full stack developer with a passion for crafting dynamic and user-centric web applications. Armed with a strong foundation in Python programming and a keen interest in both front-end and back-end development, I'm excited to embark on this journey in the world of technology.</p>
+            <p>My journey into programming began with a fascination for problem-solving and a curiosity about how things work behind the scenes on the web. Through dedicated self-study, coursework, and hands-on projects, I've honed my skills in Python and its versatile frameworks such as Django, equipping me to tackle challenges across the stack.</p>
+            <p>As I embark on this exciting journey as a Python full stack developer, I'm eager to continue learning, adapting, and embracing new technologies to stay at the forefront of this ever-evolving field.</p>
+            <p>Let's collaborate, innovate, and build the future together. I'm ready to dive in and make a meaningful impact!</p>
+            <a href="https://www.linkedin.com/in/rishabh-saxena-85ab13215"><button>Connect with Me</button></a>
+        </div>
+    </section>
+
+    <section class="projects" id="jumpprojects">
+        <div class="heading">
+            <h1>Have a look at my <span style="color: crimson;">Projects</span></h1>
+        </div>
+        <div class="box">
+            <div class="box-image">
+                <img src="{% static '/images/ecommerce.jpg' %}" height="335px" width="370px" style="border-radius: 30px;" alt="Ecommerce">
+            </div>
+            <div class="box-content">
+                <h1>E-Commerce Web Application</h1><br>
+                <p>
+                    An E-Commerce app developed in Django serves as a robust platform for online retail operations. Leveraging Django's powerful features, such an application typically encompasses essential components for seamless online shopping experiences. This includes user authentication functionalities to facilitate secure sign-ups, logins, and account management.
+                </p><br>
+                <h3>Tech Stack</h3>
+                <h4>Python , Django , SQLite , HTML5 , CSS3 , Javascript , Bootstrap </h4>
+                <a href="https://github.com/RishabhSaxena45/ShopX-Ecommerce-Website-"><button>Github</button></a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content">
+                <h1>Blog Web Application</h1><br>
+                <p>
+                    A blogging app developed in Django provides a versatile platform for individuals or organizations to publish and manage blog content efficiently. Leveraging Django's features, such an application typically includes user authentication functionalities, allowing users to register, log in, and manage their accounts securely.
+                    Overall, a Django-based blogging app offers a user-friendly interface and robust functionality for creating, managing, and sharing blog content effectively.
+                </p><br>
+                <h3>Tech Stack</h3>
+                <h4>Python , Django , SQLite , HTML5 , CSS3</h4>
+                <a href="https://github.com/RishabhSaxena45/Blog-Web-Application"><button>Github</button></a>
+            </div>
+            <div class="box-image">
+                <img src="{% static '/images/blog.png' %}" height="335px" width="370px" style="border-radius: 30px;" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-image">
+                <img src="{% static '/images/crud.png' %}" height="335px" width="370px" style="border-radius: 30px;" alt="Ecommerce">
+            </div>
+            <div class="box-content">
+                <h1>CRUD Application</h1><br>
+                <p>
+                    A CRUD (Create, Read, Update, Delete) app in Django serves as a fundamental tool for managing data through a web interface. Leveraging Django's powerful features, such an application typically allows users to perform basic database operations on a particular dataset. 
+                    With Django's built-in tools and libraries, developers can quickly develop and deploy CRUD applications with ease, providing efficient data management solutions tailored to specific business needs.
+                </p><br>
+                <h3>Tech Stack</h3>
+                <h4>Python , Django , SQLite , HTML5 , CSS3 , Bootstrap </h4>
+                <a href="https://github.com/RishabhSaxena45/Django_CRUD-Application"><button>Github</button></a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content">
+                <h1>Chatbot Application</h1><br>
+                <p>
+                    A chatbot website combines the functionality of a website with conversational artificial intelligence to provide interactive and personalized experiences for users. Typically, these websites feature a chat interface where users can communicate with the chatbot, which is programmed to understand natural language inputs and respond accordingly.Overall, chatbot websites offer a user-friendly and efficient way for businesses to engage with their audience, streamline customer interactions, and provide round-the-clock support.
+                </p><br>
+                <h3>Tech Stack</h3>
+                <h4>HTML5 , CSS3 , Javascript , Speech recognition API</h4>
+                <a href="https://github.com/RishabhSaxena45/Javascript-Chatbot"><button>Github</button></a>
+            </div>
+            <div class="box-image">
+                <img src="{% static '/images/chatbot.jpg' %}" height="335px" width="370px" style="border-radius: 30px;" alt="">
+            </div>
+        </div>
+
+    </section>
+    
+    <section class="contact" id="jumpcontact">
+        <div class="contact-img">
+            <img src="{% static '/images/contact.jpg' %}" height="300px" width="300px" style="border-radius: 30px; margin-top: 40px" alt="">
+        </div>
+        <div class="contact-content">
+            <h1>Send your <span style="color: crimson;">Query</span></h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Name : <input type="text" name="name" id="" placeholder="Enter Your Name Here"></p>
+                <p>Email : <input type="email" name="email" id="" placeholder="Enter Your Email Here"></p>
+                <p>Mobile No: <input type="tel" name="mobile" id="" placeholder="Enter Your Mobile Here"></p>
+                <p>Message : <textarea name="message" id="" cols="30" rows="10" placeholder="Write your query Here"></textarea></p>
+                <button type="submit">Submit Now</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="footer-content">
+            <br>
+            <h2>You can folow me at!!!</h2>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-github"></i><br>
+            <a href="#jumphome">Home</a><a href="#jumpabout">About</a><a href="#jumpprojects">Projects</a><a href="#jumpcontact">Contact</a>
+            <p>&copy; @2024.Rishabh Saxena Portfolio</p>
+        </div>
+    </section>
+
+</body>
+
+<script type="text/javascript" src="{% static '/js/main.js' %}"></script>
+</html>
